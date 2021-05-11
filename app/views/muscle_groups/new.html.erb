@@ -1,5 +1,17 @@
 <%= form_for(@muscle_group) do |f|%>
-
-   <%= t.text_field :name %>
    
+   <%= f.label :name %><br>
+   <%= f.text_field :name %><br>
+   <%= f.label :muscle_1 %><br>
+   <%= f.text_field :muscle_1 %><br>
+   <%= f.label :muscle_2 %><br>
+   <%= f.text_field :muscle_2 %><br>
+   <%= f.label :muscle_3 %><br>
+   <%= f.text_field :muscle_3 %><br>
+   <%= f.label :muscle_4 %><br>
+   <%= f.text_field :muscle_4 %><br>
+
+  <%= f.fields_for :routine%>  
+   <%= f.submit %>
+
 <% end %>

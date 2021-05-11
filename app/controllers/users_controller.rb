@@ -12,12 +12,11 @@ class UsersController < ApplicationController
     end 
 
     def create 
-        binding.pry 
-       user = User.create(name: params[:name])
-       redirect_to post_path(user)
+       user = User.create(user_params)
+       redirect_to user_path(user)
     end 
 
     def user_params
-       #params
+       params.require(:user).permit(:name)
     end 
 end
