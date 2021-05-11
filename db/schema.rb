@@ -10,37 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_10_182111) do
-
-  create_table "days", force: :cascade do |t|
-    t.string "name"
-    t.string "time"
-    t.integer "muscle_group_id"
-    t.integer "routine_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2021_05_11_185852) do
 
   create_table "muscle_groups", force: :cascade do |t|
     t.string "name"
     t.string "muscle_1"
     t.string "muscle_2"
     t.string "muscle_3"
+    t.string "muscle_4"
+    t.string "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "routines", force: :cascade do |t|
     t.string "name"
-    t.string "excercise"
-    t.string "time"
+    t.string "instruction"
+    t.integer "time"
+    t.integer "set_1"
+    t.integer "set_2"
+    t.integer "set_3"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "routines_musclegroups", force: :cascade do |t|
+    t.integer "routine_id"
+    t.integer "muscle_group_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.integer "day_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

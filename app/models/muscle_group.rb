@@ -1,4 +1,5 @@
 class MuscleGroup < ActiveRecord::Base
-    has_many :days
-    has_one :routine
+    belongs_to :user
+    has_many :routines_musclegroups
+    has_many :routines, through: :routines_musclegroups
 end 
