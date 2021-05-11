@@ -18,6 +18,6 @@ class UsersController < ApplicationController
     end 
 
     def user_params
-       #paramss
+       #params
     end 
 end
