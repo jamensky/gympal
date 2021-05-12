@@ -12,11 +12,14 @@ class MuscleGroupsController < ApplicationController
     end 
 
     def create 
-        muscle_group = MuscleGroup.create(muscle_group_params)
-        redirect_to muscle_group_path(muscle_group)
+       if muscle_group = MuscleGroup.new(muscle_group_params)
+          redirect_to muscle_group_path(muscle_group)
+       else 
+          render :new
+       end 
     end 
 
     def muscle_group_params
-        params.require(:muscle_group).permit(:name, :routine_ids => [])
+        params.require(:muscle_group).permit(:name, :muscle_1, :muscle_2, :muscle_3, :muscle_4, routine_ids: [], routines_attributes: [:name])
     end 
 end
