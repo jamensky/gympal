@@ -1,0 +1,15 @@
+<h4>Muscle Group Name: <%= @muscle_group.name.capitalize %></h4>
+<br>
+
+Muscles:
+
+ 
+ <%= #@muscle_group.muscle_2%>
+ <%=# @muscle_group.muscle_3%>
+ <%= #@muscle_group.muscle_4%>
+
+<% count = 3 %>
+<% count.each do |c|%>
+<% binding.pry %>
+   <%= "#{@muscle_group.muscle_+c}"%>
+<% end %>
