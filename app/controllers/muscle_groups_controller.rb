@@ -12,7 +12,7 @@ class MuscleGroupsController < ApplicationController
     end 
 
     def create 
-        binding.pry
+        #binding.pry
        if muscle_group = MuscleGroup.new(muscle_group_params)
           redirect_to muscle_group_path(muscle_group)
        else 

@@ -24,7 +24,7 @@
    <br>
   
   <h4>Create Routine</h4>
-  <%= f.fields_for :routine, Routine.new do |r|%>  
+  <%= f.fields_for :routines, Routine.new do |r|%>  
     <%= r.label :name %>
     <%= r.text_field :name %>
     <%= r.label :instruction, 'Instructions' %>
