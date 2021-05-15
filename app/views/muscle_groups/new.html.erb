@@ -1,6 +1,13 @@
 <%= form_for(@muscle_group) do |f|%>
 
 
+<% if @muscle_group.errors.any? %>
+<ul>
+  <% @muscle_group.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
 
 
 <h4>Create Muscle Group</h4><br>
