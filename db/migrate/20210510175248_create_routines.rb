@@ -4,9 +4,9 @@ class CreateRoutines < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :instruction
       t.integer :time
-      t.integer :set_1
-      t.integer :set_2
-      t.integer :set_3
+      t.string :set_1
+      t.string :set_2
+      t.string :set_3
       t.timestamps
     end
   end

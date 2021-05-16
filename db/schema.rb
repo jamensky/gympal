@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 2021_05_11_185852) do
     t.string "name"
     t.string "instruction"
     t.integer "time"
-    t.integer "set_1"
-    t.integer "set_2"
-    t.integer "set_3"
+    t.string "set_1"
+    t.string "set_2"
+    t.string "set_3"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
