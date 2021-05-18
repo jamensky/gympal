@@ -1,0 +1,11 @@
+<h2>Welcome to the Login Page!</h2>
+<br>
+<br>
+
+<%= form_for :user, url: 'users' do |f|%>
+   <%= f.label :email %>
+   <%= f.text_field :email %>
+   <%= f.label :password %>
+   <%= f.text_field :password %>
+   <%= f.submit 'Iog In'%>
+<% end %>

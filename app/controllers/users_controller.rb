@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
-    def index 
-        @users = User.all
+    #before_action :require_login 
+    #skip_before_action :require_login, only:[:new, :create]
+
+    def login
+      #binding.pry 
+      @user = User.new
     end 
 
     def show
@@ -12,11 +16,28 @@ class UsersController < ApplicationController
     end 
 
     def create 
-       user = User.create(user_params)
-       redirect_to user_path(user)
+      binding.pry 
+       if user = User.create(user_params)
+          redirect_to user_path(user)
+       else 
+          render :new 
+       end 
     end 
 
+    def edit 
+        @user = User.find_by(session[:user_id])
+    end
+
+    def update
+        
+    end
+
     def user_params
-       params.require(:user).permit(:name)
+       params.require(:user).permit(:name, :password, :password_confirmation)
     end 
+
+   def require_login
+       return head(:forbidden) unless session.include? :user_id 
+   end 
+
 end

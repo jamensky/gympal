@@ -1,7 +1,12 @@
-<%= form_for(@user) do |f|%>
-   
-   <%= f.label :name %>
-   <%= f.text_field :name %>
-   <%= f.submit %>
-   
+
+
+<h2>Sign Up</h2>
+<%= form_for(sessions_path) do |f| %>
+   <%= f.label :email %>
+   <%= f.text_field :email %>
+   <%= f.label :password %>
+   <%= f.password_field :password %>
+   <%= f.label :password_confirmation %>
+   <%= f.password_field :password_confirmation %>
+   <%= f.submit 'Create User'%>
 <% end %>

@@ -1,7 +1,7 @@
 <h4>Muscle Group Name: <%= @muscle_group.name.capitalize %></h4>
 <br>
 
-Muscles:
+<h4>Muscles:</h4>
 
 <ol>
  <li><%= @muscle_group.muscle_1 %></li>
@@ -10,10 +10,16 @@ Muscles:
  <li><%= @muscle_group.muscle_4 %></li>
 </ol>
 
-Routines:
-
+<h4>Routines:</h4>
+<ul>
 <% @muscle_group.routines.each do |r| %>
+     <li><b>Name:</b> <%= r.name %></li>
+     <li><b>1st set:</b> <%= r.set_1 %></li>
+     <li><b>2nd set:</b> <%= r.set_2 %></li>
+     <li><b>3rd set:</b> <%= r.set_3 %></li>
+     <li><b>Complete in:</b> <%= r.time %></li>
+     <li><h4>Instructions:</h4> <%= r.instruction %></li>
+<% end %>   
+</ul>
 
-   <%= r.name %>
 
-<% end %>
