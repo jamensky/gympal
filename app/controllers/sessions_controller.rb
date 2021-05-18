@@ -9,4 +9,4 @@ class SessionsController < ApplicationController
             'non existent user, create a new one'
         end 
     end 
- end 
+end 
