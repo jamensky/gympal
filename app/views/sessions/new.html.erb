@@ -1,5 +1,9 @@
+<% if flash[:notice] %>
+   <%= flash[:notice] %>
+<% end %>
+
 <%= form_tag('/sessions') do %>
    <%= label_tag 'Email:' %>
    <%= text_field_tag 'email' %>
-   <%= submit_tag 'Register' %>
+   <%= submit_tag 'Login' %>
 <% end %>   
