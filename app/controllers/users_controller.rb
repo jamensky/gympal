@@ -2,12 +2,8 @@ class UsersController < ApplicationController
     #before_action :require_login 
     #skip_before_action :require_login, only:[:new, :create]
 
-    def login
-      #binding.pry 
-      @user = User.new
-    end 
-
     def show
+      #binding.pry 
         @user = User.find_by(params[:id]) 
     end 
 
@@ -16,7 +12,6 @@ class UsersController < ApplicationController
     end 
 
     def create 
-      binding.pry 
        if user = User.create(user_params)
           redirect_to user_path(user)
        else 
