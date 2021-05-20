@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
     def show
       #binding.pry 
-        @user = User.find_by(params[:id]) 
+        @user = User.find_by_id(session[:user_id]) 
     end 
 
     def new 

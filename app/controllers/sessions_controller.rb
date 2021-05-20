@@ -14,4 +14,9 @@ class SessionsController < ApplicationController
             redirect_to '/login', :notice => 'Cannot find the user'
         end 
     end 
+
+    def destroy 
+       session.delete :user_name
+       render '/login'
+    end 
  end 
