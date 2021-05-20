@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
 
     def create 
         user = User.find_by(email: params[:email])
-
         if user
             #authenticated = user.try(:authenticate, params[:password])
               #return head(:forbidden) unless authenticated
@@ -15,8 +14,9 @@ class SessionsController < ApplicationController
         end 
     end 
 
+
     def destroy 
-       session.delete :user_name
-       render '/login'
+       session[:user_id] = nil
+       redirect_to '/login', notice: 'You have been logged out successfully'
     end 
  end 
