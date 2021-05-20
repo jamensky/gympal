@@ -12,10 +12,10 @@ class UsersController < ApplicationController
     end 
 
     def create 
-       if user = User.create(user_params)
-          redirect_to user_path(user)
+       if user = User.create(email: params['user']['email'], password: params['user']['password'])
+          redirect_to '/login'
        else 
-          render :new 
+          render :new, :notice => 'incorrect details'
        end 
     end 
 
