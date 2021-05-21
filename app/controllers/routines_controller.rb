@@ -12,8 +12,8 @@ class RoutinesController < ApplicationController
     end 
 
     def create 
-        
        if @routine = Routine.new(routine_params)
+      
           @routine.save
     
           redirect_to @routine
@@ -28,8 +28,8 @@ class RoutinesController < ApplicationController
         :set_1, :set_2, :set_3,
         :time,
         :instruction,
-        muscle_groups_ids: [], 
-        muscle_group_attributes: [
+        muscle_group_ids: [], 
+        muscle_groups_attributes: [
             :name, :muscle_1, :muscle_2, :muscle_3, :muscle_4
         ])
     end 

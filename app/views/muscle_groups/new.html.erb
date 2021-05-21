@@ -22,23 +22,40 @@
    <%= f.label :muscle_4 %><br>
    <%= f.text_field :muscle_4 %><br>
    <br>
-  
-  <h4>Create Routine</h4>
-  <%= f.fields_for :routines, @muscle_group.routines.build do |r|%>  
-    <%= r.label :name %>
-    <%= r.text_field :name %>
-    <%= r.label :instruction, 'Instructions' %>
-    <%= r.text_area :instruction %>
-    <%= r.label :time %>
-    <%= r.text_field :time %>
-    <%= r.label :set_1 %>
-    <%= r.text_field :set_1 %>
-    <%= r.label :set_2 %>
-    <%= r.text_field :set_2 %>
-    <%= r.label :set_3 %>
-    <%= r.text_field :set_3 %>
-  <% end %>
+   <br>
 
+
+  <h4>Assign routine</h4>
+   <% if MuscleGroup.all.empty?%>
+       <p>No routines available! Create a new one below<p>
+   <% end %>
+
+   <%= f.collection_check_boxes :routine_ids, Routine.all, :id, :name %>
+   <br>
+   <br>
+
+  <h4>Create and add a new rouitne </h4>
+  <%= f.fields_for :routines, @muscle_group.routines.build do |r|%> 
+      <%= r.label :name, 'Routine name: ' %><br>
+      <%= r.text_field :name %><br>
+      <%= r.label :set_1 %><br>
+      <%= r.text_field :set_1 %><br>
+      <%= r.label :set_2 %><br>
+      <%= r.text_field :set_2 %><br>
+      <%= r.label :set_3 %><br>
+      <%= r.text_field :set_3 %><br>
+        <br>
+        <br>
+      <%= r.label :instruction, 'Instructions: ' %>
+      <%= r.text_area :instruction %>
+        <br>
+        <br>
+      <%= r.label :time, 'To be completed in minutes: ' %>
+      <%= r.text_field :time %>
+        <br>
+        <br>
+        <br>
+      <% end %>
    <%= f.submit %>
 
 <% end %>

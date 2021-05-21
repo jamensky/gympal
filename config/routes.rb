@@ -6,9 +6,14 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  resources :users, only:[:show, :delete]
-  resources :muscle_groups
+
   resources :routines 
+  resources :muscle_groups 
+
+  resources :users, only:[:show, :delete] do 
+    resources :muscle_groups, only:[:index, :new, :show]
+  end 
+  
   
 
 end

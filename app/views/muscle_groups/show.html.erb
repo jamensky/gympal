@@ -2,7 +2,6 @@
 <br>
 
 <h4>Muscles:</h4>
-
 <ol>
  <li><%= @muscle_group.muscle_1 %></li>
  <li><%= @muscle_group.muscle_2 %></li>
@@ -21,5 +20,19 @@
      <li><h4>Instructions:</h4> <%= r.instruction %></li>
 <% end %>   
 </ul>
+<%binding.pry %>
+
+ 
+    <%= link_to 'User info', user_(post.author) %></h3>
+    <p><%= post.description %></p>
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<%= button_to "Logout", logout_path, method: :delete %>
 
 

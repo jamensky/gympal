@@ -2,7 +2,8 @@ Welcome: <%= @user.email %>
 <br>
 <br>
 
-<%= link_to 'Create muscle group', controller: 'muscle_groups', action: 'new' %>
+<%= link_to 'Create muscle group', new_user_muscle_group_path(@user.muscle_groups)%>
 or 
-<%= link_to 'Create routine', controller: 'routines', action: 'new' %>
+<%= link_to 'View all muscle groups', user_muscle_groups_path(@user.muscle_groups)%>
+
 <br>

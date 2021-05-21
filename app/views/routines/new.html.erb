@@ -15,7 +15,7 @@
     </div>
   <% end %>
 
-   <%= f.label :name %><br>
+   <%= f.label :name, 'Routine name: ' %><br>
    <%= f.text_field :name %><br>
    <%= f.label :set_1 %><br>
    <%= f.text_field :set_1 %><br>
@@ -33,6 +33,30 @@
    <%= f.text_field :time %>
    <br>
    <br>
+   <br>
+
+
+   <h4>Assign to an existing muscle group:</h4>
+   <% if MuscleGroup.all.empty?%>
+       <p>No muscle groups available! Create a new one below<p>
+   <% end %>
+
+   <%= f.collection_check_boxes :muscle_group_ids, MuscleGroup.all, :id, :name %>
+   <br>
+
+   <h4>Create and assign to a new muscle group:</h4>
+   <%= f.fields_for :muscle_groups, @routine.muscle_groups.build do |m| %>
+     <%= m.label :name %><br>
+     <%= m.text_field :name %><br>
+     <%= m.label :muscle_1 %><br>  
+     <%= m.text_field :muscle_1 %><br>
+     <%= m.label :muscle_2 %><br>
+     <%= m.text_field :muscle_2 %><br>
+     <%= m.label :muscle_3 %><br>
+     <%= m.text_field :muscle_3 %><br>
+     <%= m.label :muscle_4 %><br>
+     <%= m.text_field :muscle_4 %><br>
+  <% end %>
 
    <%= f.submit 'Create routine' %>
 <% end %>

@@ -7,9 +7,9 @@ class MuscleGroup < ActiveRecord::Base
 
     accepts_nested_attributes_for :routines
 
-    def routines_attributes=(routines_attributes)
-      if routines_attributes.values[0]['name'].present?
-        self.routines << Routine.find_or_create_by(routines_attributes['0'])
+    def routines_attributes=(routine_attributes)
+      if routine_attributes.values[0]['name'].present?
+        self.routines << Routine.find_or_create_by(routine_attributes['0'])
       end
     end 
 end                                                  
