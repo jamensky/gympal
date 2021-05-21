@@ -1,0 +1,30 @@
+<h2>You are updating <%= @muscle_group.name %> muscles group</2>
+
+
+<%= form_for(@muscle_group) do |f|%>
+
+
+<% if @muscle_group.errors.any? %>
+<ul>
+  <% @muscle_group.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+
+<h4>Create Muscle Group</h4><br>
+   <%= f.label :name %><br>
+   <%= f.text_field :name %><br>
+   <%= f.label :muscle_1 %><br>
+   <%= f.text_field :muscle_1 %><br>
+   <%= f.label :muscle_2 %><br>
+   <%= f.text_field :muscle_2 %><br>
+   <%= f.label :muscle_3 %><br>
+   <%= f.text_field :muscle_3 %><br>
+   <%= f.label :muscle_4 %><br>
+   <%= f.text_field :muscle_4 %><br>
+   <br>
+   <br>
+
+   <% end %>

@@ -22,6 +22,20 @@ class MuscleGroupsController < ApplicationController
        end 
     end 
 
+    def edit 
+        @muscle_group = MuscleGroup.find_by_id(params[:id])
+    end 
+
+    def update
+       @muscle_group = MuscleGroup.find_by_id(params[:id])
+       if @muscle_group.valid?
+         @muscle_group.update
+         redirect_to muscle_group_path(@muscle_group)
+       else 
+         render :update
+       end 
+    end  
+
     def muscle_group_params
         params.require(:muscle_group).permit(
         :name, 

@@ -1,4 +1,23 @@
 Welcome: <%= @user.email %>
+
+<br>
+<br>
+
+   <% if @user.muscle_groups.empty? %>
+   <h3>You don't have any muscle groups</h3>
+   <% end %>
+
+<% @user.muscle_groups.each do |mg| %>
+
+   <h4>Group name: <%= mg.name.capitalize %></h4>
+   <li><%= mg.muscle_1 %></li>
+   <li><%= mg.muscle_2 %></li>
+   <li><%= mg.muscle_3 %></li>
+   <li><%= mg.muscle_4 %></li>
+   <br>
+   <br>
+<% end %>
+
 <br>
 <br>
 
