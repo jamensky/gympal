@@ -1,5 +1,38 @@
-<%= form_for(@routine) do |f|%>
 
-   <%= t.text_field :name %>
-   
+
+<h2>Create a New Routine</h2>
+
+<%= form_for(@routine) do |f| %>
+
+   <% if @routine.errors.any? %>
+    <div id="error_explanation">
+      <h3>There were some errors:</h3>
+      <ul>
+        <% @routine.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <%= f.label :name %><br>
+   <%= f.text_field :name %><br>
+   <%= f.label :set_1 %><br>
+   <%= f.text_field :set_1 %><br>
+   <%= f.label :set_2 %><br>
+   <%= f.text_field :set_2 %><br>
+   <%= f.label :set_3 %><br>
+   <%= f.text_field :set_3 %><br>
+   <br>
+   <br>
+   <%= f.label :instruction, 'Instructions: ' %>
+   <%= f.text_area :instruction %>
+   <br>
+   <br>
+   <%= f.label :time, 'To be completed in minutes: ' %>
+   <%= f.text_field :time %>
+   <br>
+   <br>
+
+   <%= f.submit 'Create routine'%>
 <% end %>
