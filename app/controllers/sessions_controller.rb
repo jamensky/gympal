@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
             redirect_to user_path(@user)
         else 
             
-            redirect_to '/login', :notice => 'Cannot find the user'
+            redirect_to '/login', :notice => 'Cannot find the user details entered. Please re-enter correct details, or register a new user.'
         end 
     end 
 

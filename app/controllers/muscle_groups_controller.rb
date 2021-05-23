@@ -20,6 +20,7 @@ class MuscleGroupsController < ApplicationController
        else 
           render :new
        end 
+
     end 
 
     def edit 
@@ -28,8 +29,7 @@ class MuscleGroupsController < ApplicationController
 
     def update
        @muscle_group = MuscleGroup.find_by_id(params[:id])
-       if @muscle_group.valid?
-         @muscle_group.update
+       if @muscle_group.update(muscle_group_params)
          redirect_to muscle_group_path(@muscle_group)
        else 
          render :update

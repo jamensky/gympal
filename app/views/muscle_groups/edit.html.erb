@@ -1,6 +1,5 @@
 <h2>You are updating <%= @muscle_group.name %> muscles group</2>
 
-
 <%= form_for(@muscle_group) do |f|%>
 
 
@@ -13,7 +12,7 @@
 <% end %>
 
 
-<h4>Create Muscle Group</h4><br>
+  <br>
    <%= f.label :name %><br>
    <%= f.text_field :name %><br>
    <%= f.label :muscle_1 %><br>
@@ -26,5 +25,6 @@
    <%= f.text_field :muscle_4 %><br>
    <br>
    <br>
-
+    
+    <%= f.submit 'Save updates' %>
    <% end %>
