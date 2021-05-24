@@ -18,11 +18,23 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+# Use Omiauth to use login providers
+gem 'omniauth', '~> 1.3', '>= 1.3.1'
+# Use mniauth-facebook' to allow authentication via via Facebook
+gem 'omniauth-facebook', '~> 4.0' 
+# Use mniauth-facebook' to allow authentication via via Facebook
+gem 'omniauth-google-oauth2'
+# Use thin to start server with https 
+gem 'thin', '~> 1.7'
+# Recent Omniouth updates 
+gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
+# User Dotenv to manage environment variables 
+gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+# Use Active-record-sessionstore to make sure sessions persist
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

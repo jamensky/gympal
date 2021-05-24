@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  get '/auth/google_oauth2/callback' => 'sessions#omniauth'
 
   resources :routines 
   resources :muscle_groups 

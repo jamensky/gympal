@@ -1,22 +1,25 @@
+<% if session[:user_id] %>
+
 Welcome: <%= @user.email %>
 
 <br>
 <br>
 
    <% if @user.muscle_groups.empty? %>
-   <h3>You don't have any muscle groups</h3>
+     <h3>You don't have any muscle groups</h3>
    <% end %>
 
-<% @user.muscle_groups.each do |mg| %>
+  <% @user.muscle_groups.each do |mg| %>
 
-   <h4>Group name: <%= mg.name.capitalize %></h4>
-   <li><%= mg.muscle_1 %></li>
-   <li><%= mg.muscle_2 %></li>
-   <li><%= mg.muscle_3 %></li>
-   <li><%= mg.muscle_4 %></li>
-   <br>
-   <br>
-<% end %>
+     <h4>Group name: <%= mg.name.capitalize %></h4>
+     <li><%= mg.muscle_1 %></li>
+     <li><%= mg.muscle_2 %></li>
+     <li><%= mg.muscle_3 %></li>
+     <li><%= mg.muscle_4 %></li>
+     <br>
+     <br>
+     
+  <% end %>
 
 <br>
 <br>
@@ -26,3 +29,8 @@ or
 <%= link_to 'View all muscle groups', user_muscle_groups_path(@user.muscle_groups)%>
 
 <br>
+<% else %>
+  <%= button_to 'Log in with Facebook', '/auth/facebook' %>
+  or 
+  <%= link_to('with Email and Password', link: '/sessions/new' ) %>
+<% end %>
