@@ -13,7 +13,7 @@
    <%= submit_tag 'Login' %>
 <% end %>  
 <br>
-<%= link_to('Log in with Google!', '/auth/google_oauth2', method: :post) %> 
+<%= button_to 'Log in with Google!', '/auth/google_oauth2' %> 
 <br>
 <br>
-<%= link_to 'Sing up', controller: "users", action: "new" %>
+<%= button_to 'Sign up', '/register', method: :get  %>
