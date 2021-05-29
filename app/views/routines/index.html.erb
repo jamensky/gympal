@@ -1,0 +1,9 @@
+Welcome To The Routines Index Page
+
+<% @routines.each do |r|%>
+   <%= r.name %>
+   <br>
+<% end %>
+
+Select a quick workout youcan do in 10 minutes or less:
+<%= Routine.short_routines %>

@@ -2,7 +2,7 @@ class Routine < ActiveRecord::Base
     has_many :routines_musclegroups
     has_many :muscle_groups, through: :routines_musclegroups
 
-    validates :name, presence: true 
+    scope :short_routines, ->{where('time < 10')}
 
     accepts_nested_attributes_for :muscle_groups
     def muscle_groups_attributes=(muscle_group_attributes)

@@ -25,13 +25,18 @@ Welcome: <%= @user.email %>
 <br>
 <br>
 
-<%= link_to 'Create muscle group', new_user_muscle_group_path(@user.muscle_groups)%>
-or 
-<%= link_to 'View all muscle groups', user_muscle_groups_path(@user.muscle_groups)%>
+<%= link_to 'Create muscle group', new_user_muscle_group_path(@user)%><br>
+
+<%= link_to 'View all muscle groups', user_muscle_groups_path(@user)%><br>
+
+<%= link_to 'View all available workout routines', routines_path %>
 
 <br>
+
+
 <% else %>
-  <%= button_to 'Log in with Facebook', '/auth/facebook' %>
+  <h2>You are not logged in:</h2>
+    <%= button_to 'Log in with Facebook', '/auth/facebook' %>
   or 
-  <%= link_to('with Email and Password', link: '/sessions/new' ) %>
+    <%= link_to('with Email and Password', link: '/sessions/new' ) %>
 <% end %>

@@ -9,7 +9,16 @@
    <br>
    <br>
 <% end %>
-<br>
-<br>
-<%=link_to 'Create new group', new_muscle_group_path %>
 </ul>
+<%= button_to 'Create new muscle group', '/muscle_groups/new', method: :get %>
+<br>
+<br>
+
+<h4>Assign an existing muscle group to the logged in user:</h4>
+  <%= form_for(User.find_by_id(session[:user_id])) do |f| %>
+    <%= f.collection_check_boxes :muscle_group_ids, MuscleGroup.all, :id, :name %>
+    <br>
+    <br>
+   <%= f.submit %>
+  <% end %>
+

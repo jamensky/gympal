@@ -1,10 +1,17 @@
 class SessionsController < ApplicationController
     def new 
     end 
-    
+
     def omniauth
-        
+        @user = User.find_or_create_by(auth[:uid]) do |u|
+           u.name = auth[:name]
+           u.email = auth[:email]
+        end 
+
+        session[:user_id] = @user.id 
+        redirect_to user_path(@user)
     end
+
 
     def create 
         @user = User.find_by(email: params[:email])
@@ -25,4 +32,8 @@ class SessionsController < ApplicationController
        session[:user_id] = nil
        redirect_to '/login', notice: 'You have been logged out successfully'
     end 
+
+    def auth
+        request.env['omniauth.auth']
+      end
  end 

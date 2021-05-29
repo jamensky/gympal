@@ -14,24 +14,31 @@ class UsersController < ApplicationController
        else 
           render :new
        end 
-       
+
     end 
 
-    def edit 
-        @user = User.find_by(session[:user_id])
-    end
 
     def show
         @user = User.find_by_id(session[:user_id]) 
     end 
 
-    def update
-        
+
+    def edit 
+        @user = User.find_by(session[:user_id])
     end
 
-    def user_params
-       params.require(:user).permit(:email, :password)
+
+    def update
+        @user = User.find_by_id(session[:user_id])
+        @user.update(user_params)
+        redirect_to user_path(@user)
     end 
+
+
+    def user_params
+       params.require(:user).permit(:email, :password, :muscle_group_ids => [])
+    end 
+
 
    def require_login
        return head(:forbidden) unless session.include? :user_id 
