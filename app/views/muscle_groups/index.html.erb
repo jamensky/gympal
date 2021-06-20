@@ -1,15 +1,12 @@
 <h2>Muscle Groups Index</h2>
+
 <ul>
-<% @muscle_groups.each do |mg|%>
-<h4>Group name: <%= mg.name.capitalize %></h4>
-   <li><%= mg.muscle_1 %></li>
-   <li><%= mg.muscle_2 %></li>
-   <li><%= mg.muscle_3 %></li>
-   <li><%= mg.muscle_4 %></li>
-   <br>
-   <br>
-<% end %>
+<h4>Group names: 
+  <% @muscle_groups.each do |m_g|%>
+    <li><%= m_g.name.capitalize %></h4></li>  
+  <% end %>
 </ul>
+
 <%= button_to 'Create new muscle group', '/muscle_groups/new', method: :get %>
 <br>
 <br>

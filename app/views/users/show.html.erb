@@ -8,29 +8,15 @@ Welcome: <%= @user.email %>
 
    <% if @user.muscle_groups.empty? %>
      <h3>You don't have any muscle groups</h3>
+     <%= link_to 'Cereate a muscle group', new_muscle_group_path %>
+   <% else %> 
+     <%= link_to 'Your muscle groups', user_muscle_groups_index(@user.id)  %>
    <% end %>
+ <br>
+  <%= link_to 'Muscle_groups', muscle_groups_path %>
 
-  <% @user.muscle_groups.each do |mg| %>
-
-     <h4>Group name: <%= mg.name.capitalize %></h4>
-     <li><%= mg.muscle_1 %></li>
-     <li><%= mg.muscle_2 %></li>
-     <li><%= mg.muscle_3 %></li>
-     <li><%= mg.muscle_4 %></li>
-     <br>
-     <br>
-     
-  <% end %>
 
 <br>
-<br>
-
-<%= link_to 'Create muscle group', new_user_muscle_group_path(@user)%><br>
-
-<%= link_to 'View all muscle groups', user_muscle_groups_path(@user)%><br>
-
-<%= link_to 'View all available workout routines', routines_path %>
-
 <br>
 
 

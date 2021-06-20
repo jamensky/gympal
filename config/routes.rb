@@ -8,12 +8,11 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get 'auth/google_oauth2/callback' => 'sessions#omniauth'
 
+  resources :routines
+  resources :muscle_groups
 
-  resources :routines 
-  resources :muscle_groups 
-
-  resources :users, only:[:show, :delete, :update] do 
-    resources :muscle_groups, only:[:index, :new, :show]
+  resources :users do 
+     resources :muscle_groups, only: [:index, :show]
   end 
   
   

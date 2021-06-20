@@ -1,9 +1,14 @@
 class MuscleGroupsController < ApplicationController
     def index 
+      if params[:user_id]
+        @muscle_groups = User.find_by_id(params[:user_id]).muscle_groups
+      else 
         @muscle_groups = MuscleGroup.all
+      end 
     end 
 
     def show
+      
         @muscle_group = MuscleGroup.find_by_id(params[:id]) 
     end 
 

@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-    def new 
-    end 
 
     def omniauth
         @user = User.find_or_create_by(auth[:uid]) do |u|
